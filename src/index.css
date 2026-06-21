@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html, body, #root {
+    height: 100%;
+  }
+
+  body {
+    @apply font-sans text-steel-100 antialiased;
+    background-color: #050D1A;
+    background-image:
+      radial-gradient(ellipse at top left, rgba(30, 58, 95, 0.35) 0%, transparent 50%),
+      radial-gradient(ellipse at bottom right, rgba(10, 22, 40, 0.8) 0%, transparent 60%),
+      linear-gradient(180deg, #050D1A 0%, #0A1628 100%);
+    background-attachment: fixed;
+  }
+
+  ::selection {
+    @apply bg-navy-600 text-white;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-navy-900;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-steel-600;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-steel-500;
+  }
+}
+
+@layer components {
+  .input-base {
+    @apply w-full bg-navy-800/60 border border-steel-700 text-steel-100 px-4 py-3
+           focus:outline-none focus:border-steel-300 focus:shadow-inset-line
+           transition-all duration-200 placeholder:text-steel-500;
+  }
+
+  .input-mono {
+    @apply font-mono tracking-wider;
+  }
+
+  .btn-primary {
+    @apply w-full py-3 px-6 font-medium text-white
+           bg-security-green hover:bg-security-greenLight
+           border border-security-green hover:border-security-greenLight
+           transition-all duration-200
+           active:translate-y-px
+           disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:bg-security-green;
+  }
+
+  .btn-secondary {
+    @apply w-full py-3 px-6 font-medium text-steel-100
+           bg-navy-700 hover:bg-navy-600
+           border border-steel-600 hover:border-steel-400
+           transition-all duration-200
+           active:translate-y-px;
+  }
+
+  .btn-warning {
+    @apply w-full py-3 px-6 font-medium text-white
+           bg-security-orange hover:bg-security-orangeLight
+           border border-security-orange hover:border-security-orangeLight
+           transition-all duration-200
+           active:translate-y-px;
+  }
+
+  .card-panel {
+    @apply bg-navy-800/70 border border-steel-700/50 shadow-card backdrop-blur-sm;
+  }
+
+  .label-text {
+    @apply block text-sm text-steel-300 mb-2 font-medium;
+  }
+
+  .tag-badge {
+    @apply inline-flex items-center px-2.5 py-1 text-xs font-medium
+           border bg-navy-900/80;
+  }
+
+  .divider-line {
+    @apply h-px w-full bg-gradient-to-r from-transparent via-steel-600/40 to-transparent;
+  }
+}
+
+@layer utilities {
+  .text-shadow-sm {
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+  }
+
+  .grid-lines {
+    background-image:
+      linear-gradient(rgba(168, 197, 218, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(168, 197, 218, 0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+}
